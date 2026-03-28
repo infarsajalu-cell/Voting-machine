@@ -1,7 +1,7 @@
 const candidates = [
     { name: 'Stephen Nedumpally', image: 'Stephen_Nedumpally.png' },
     { name: 'Kadakkal Chandran', image: 'Kadakkal_Chandran.png' },
-    { name: 'Kaitheri സഹദേവൻ', image: 'Kaitheri_സഹദേവൻ.png' },
+    { name: 'Kaitheri Sahadevan', image: 'Kaitheri_Sahadevan.png' },
     { name: 'P. P. Sashi Aashan', image: 'P_P_Sashi_Aashan.png' },
     { name: 'Adv. Ramanunni K.R', image: 'Adv_Ramanunni_KR.png' },
     { name: 'Aji Mathew /Ajippan', image: 'Aji Mathew:Ajippan.png' },

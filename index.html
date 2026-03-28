@@ -8,23 +8,26 @@
 </head>
 <body>
     <div class="start-screen" id="startScreen">
-        <div class="start-card">
-            <div class="start-visual">
-                <img src="TitleImg.png" alt="Voting Machine" class="title-img">
+        <div class="start-card initial-card">
+            <h1>Virtual Election</h1>
+            <p class="malayalam-text">നിങ്ങൾക്ക് ഇഷ്ടപ്പെട്ട രാഷ്ട്രീയ സിനിമ കഥാപാത്രത്തെ virtual vote ചെയ്തു വിജയിപ്പിക്കുക</p>
+            <p class="start-description">Our favorite stars are stepping off the sets and into the assembly race. Check out the famous faces from the Malayalam Film Industry appearing on your ballot paper this year. <br><br>Vote for your favorite star now! 👇</p>
+            <div class="start-highlights">
+                <p>🎞️ The Virtual Ballot is Ready.</p>
+                <p>⭐ The Stars are Waiting.</p>
+                <p>🗳️ The Choice is Yours</p>
             </div>
-            <div class="start-content">
-                <h1>Select Your Future</h1>
-                <p class="start-description">Cast your vote for the leadership that will shape our community's tomorrow. Your vote is secure and confidential.</p>
-                <div class="instructions">
-                    <h3>Voter Instructions:</h3>
-                    <ul>
-                        <li>1. Browse candidate names and portraits carefully.</li>
-                        <li>2. Press the blue button next to your chosen candidate.</li>
-                        <li>3. Wait for the confirmation beep sound.</li>
-                    </ul>
-                </div>
-                <button id="startBtn" class="primary-btn">Start Voting</button>
+            <button id="startBtn" class="primary-btn">Meet the Candidates &rarr;</button>
+        </div>
+    </div>
+
+    <div class="intro-screen" id="candidateIntro" style="display: none;">
+        <div class="intro-card">
+            <h1>Meet our Candidates</h1>
+            <div class="intro-visual">
+                <img src="TitleImg.jpeg" alt="Voting Machine" class="intro-img">
             </div>
+            <button id="proceedToVoteBtn" class="primary-btn">Click here to start the vote</button>
         </div>
     </div>
 

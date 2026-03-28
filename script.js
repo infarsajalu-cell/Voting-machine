@@ -19,6 +19,8 @@ const resultModal = document.getElementById('resultModal');
 const closeModalBtn = document.getElementById('closeModal');
 const startScreen = document.getElementById('startScreen');
 const startBtn = document.getElementById('startBtn');
+const candidateIntro = document.getElementById('candidateIntro');
+const proceedToVoteBtn = document.getElementById('proceedToVoteBtn');
 const evmMain = document.getElementById('evmMain');
 let hasVoted = false;
 
@@ -118,9 +120,14 @@ function showModal() {
     resultModal.classList.add('show');
 }
 
-// Start Application
+// Start Application flow
 startBtn.addEventListener('click', () => {
-    startScreen.classList.add('hidden');
+    startScreen.style.display = 'none';
+    candidateIntro.style.display = 'flex';
+});
+
+proceedToVoteBtn.addEventListener('click', () => {
+    candidateIntro.style.display = 'none';
     evmMain.style.display = 'block';
     
     // Initialize or re-initialize the machine
@@ -130,4 +137,5 @@ startBtn.addEventListener('click', () => {
 closeModalBtn.addEventListener('click', () => {
     resultModal.classList.remove('show');
 });
+
 

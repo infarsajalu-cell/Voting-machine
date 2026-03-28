@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="evm-container">
+        <div class="evm-header">
+            <div class="ready-light-container">
+                Ready <div class="light ready-light" id="readyLight"></div>
+            </div>
+            <div class="unit-label">
+                Ballot Unit <div class="black-square"></div>
+            </div>
+        </div>
+        <div class="evm-body">
+            <div class="candidates-list" id="candidatesList">
+                <!-- JS will populate candidates -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Result Notification -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Vote Submitted Successfully!</h2>
+                <span class="close-btn" id="closeModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p class="modal-intro">Thank you for your valuable vote.</p>
+                <div class="voted-candidate-card">
+                    <p>You voted for:</p>
+                    <div class="voted-candidate-info">
+                        <img id="votedImage" src="" alt="Candidate" class="voted-candidate-img">
+                        <span id="votedName" class="voted-candidate-name"></span>
+                    </div>
+                </div>
+                <p class="modal-success-msg">Your vote has been submitted successfully!</p>
+                <div class="highlight result-container">
+                    <p>The result will be published on</p>
+                    <p class="result-date">4th April 2026</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

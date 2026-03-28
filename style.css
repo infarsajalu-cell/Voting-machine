@@ -1,0 +1,453 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #2c3e50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.evm-container {
+    width: 100%;
+    max-width: 480px;
+    background: #e4e6e3;
+    border-radius: 12px;
+    padding: 10px 15px 30px 15px;
+    box-shadow: 
+        0 15px 35px rgba(0,0,0,0.5), 
+        inset 0 0 10px rgba(255,255,255,0.7),
+        inset 0 -10px 15px rgba(0,0,0,0.1);
+    position: relative;
+    border: 4px solid #b8b8b6;
+}
+
+.evm-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    background: transparent;
+    position: relative;
+}
+
+/* Simulate the blue tag on top right as seen in image */
+.evm-header::after {
+    content: '';
+    position: absolute;
+    top: -14px;
+    right: 30px;
+    width: 90px;
+    height: 10px;
+    background-color: #3f688e;
+    border-radius: 0 0 4px 4px;
+}
+
+.ready-light-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+.light {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #2e4d3a;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+    border: 1px solid #1a2a20;
+}
+
+.ready-light.active {
+    background-color: #178a48;
+    box-shadow: 0 0 8px #2ecc71, inset 0 2px 4px rgba(255,255,255,0.4);
+}
+
+.unit-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+.black-square {
+    width: 12px;
+    height: 18px;
+    background-color: #111;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.3);
+}
+
+.evm-body {
+    background: #e4e6e3;
+}
+
+.candidates-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.candidate-row {
+    display: flex;
+    align-items: center;
+    border: 1px solid #aeb0ac;
+    border-bottom: none;
+    background: #f7f7f7;
+    height: 65px;
+}
+
+.candidate-row:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    overflow: hidden;
+}
+
+.candidate-row:last-child {
+    border-bottom: 1px solid #aeb0ac;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    overflow: hidden;
+}
+
+/* The left section uses a light gray panel in the image */
+.candidate-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background: #cfd2ce; /* Match the gray background on the left in the EVM */
+    border-right: 1px solid #aeb0ac;
+}
+
+.candidate-image {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    flex-shrink: 0;
+}
+
+.candidate-name-container {
+    flex: 1;
+    height: 44px;
+    background: white;
+    border: 1px solid #aeb0ac;
+    border-right: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+}
+
+.candidate-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #222;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.voting-area {
+    width: 120px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background: #e4e6e3;
+}
+
+.red-light {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #6a1a21;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+    border: 1px solid #3d0e12;
+}
+
+.red-light.active {
+    background-color: #e74c3c;
+    box-shadow: 0 0 12px #ff6b6b, inset 0 2px 4px rgba(255,255,255,0.4);
+}
+
+.vote-btn {
+    width: 60px;
+    height: 28px;
+    border-radius: 14px;
+    background: #3f688e;
+    border: none;
+    cursor: pointer;
+    box-shadow: 
+        0 3px 0 #183552, 
+        0 4px 5px rgba(0,0,0,0.3),
+        inset 0 2px 2px rgba(255,255,255,0.2);
+    transition: all 0.1s;
+    outline: none;
+}
+
+.vote-btn:active {
+    transform: translateY(3px);
+    box-shadow: 
+        0 0 0 #183552, 
+        0 1px 2px rgba(0,0,0,0.3),
+        inset 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.vote-btn:disabled {
+    cursor: not-allowed;
+    background: #7a8fa3;
+    box-shadow: 0 3px 0 #4a5c6d;
+}
+
+.vote-btn:disabled:active {
+    transform: none;
+    box-shadow: 0 3px 0 #4a5c6d;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #178a48, #2ecc71);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    font-size: 20px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.close-btn {
+    font-size: 28px;
+    line-height: 1;
+    font-weight: normal;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.close-btn:hover {
+    opacity: 1;
+}
+
+.modal-body {
+    padding: 30px;
+    text-align: center;
+}
+
+.modal-body p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.modal-body .highlight {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 5px solid #3f688e;
+    margin: 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.modal-intro {
+    font-size: 18px !important;
+    font-weight: 600;
+    color: #1a1a1a !important;
+    margin-bottom: 25px !important;
+}
+
+.voted-candidate-card {
+    background: #f0f2f0;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px dashed #aeb0ac;
+}
+
+.voted-candidate-card p {
+    font-size: 14px !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px !important;
+    color: #666 !important;
+}
+
+.voted-candidate-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.voted-candidate-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.voted-candidate-name {
+    font-size: 20px;
+    font-weight: 800;
+    color: #178a48;
+    text-transform: uppercase;
+}
+
+.modal-success-msg {
+    font-weight: 500;
+    color: #333 !important;
+    margin-bottom: 25px !important;
+}
+
+.result-container p {
+    margin-bottom: 5px !important;
+    font-size: 14px !important;
+    color: #444 !important;
+}
+
+.result-date {
+    font-size: 22px !important;
+    color: #1a1a1a !important;
+    margin-bottom: 0 !important;
+}
+
+/* Responsive Design for Mobile Screens */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .evm-container {
+        border-radius: 8px;
+        padding: 5px 10px 20px 10px;
+        border-width: 3px;
+    }
+    
+    .candidate-row {
+        height: 58px;
+    }
+
+    .candidate-image {
+        width: 46px;
+        height: 46px;
+        margin-left: 6px;
+        margin-right: 6px;
+    }
+    
+    .candidate-name-container {
+        height: 36px;
+        padding: 0 5px;
+    }
+    
+    .candidate-name {
+        font-size: 11px;
+    }
+    
+    .voting-area {
+        width: 90px;
+        gap: 8px;
+    }
+    
+    .red-light {
+        width: 14px;
+        height: 14px;
+    }
+
+    .vote-btn {
+        width: 50px;
+        height: 26px;
+    }
+    
+    .evm-header {
+        padding: 8px 5px;
+    }
+    
+    .evm-header::after {
+        width: 70px;
+        right: 15px;
+        top: -9px;
+    }
+    
+    .unit-label {
+        font-size: 13px;
+        gap: 6px;
+    }
+    
+    .ready-light-container {
+        font-size: 13px;
+        gap: 6px;
+    }
+    
+    .modal-content {
+        width: 95%;
+    }
+    
+    .modal-body .highlight {
+        font-size: 15px;
+        padding: 10px;
+    }
+}

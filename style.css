@@ -6,12 +6,149 @@
 }
 
 body {
-    background-color: #2c3e50;
+    background-color: #1a1c1e;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    color: #e4e6e3;
+}
+
+/* Start Screen Styling */
+.start-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #2c3e50, #1a1c1e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease-out, visibility 0.5s;
+}
+
+.start-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.start-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 32px;
+    max-width: 1000px;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.6);
+    animation: fadeInScale 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.start-visual {
+    flex: 1.2;
+    display: flex;
+    justify-content: center;
+}
+
+.start-content {
+    flex: 1;
+    text-align: left;
+}
+
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.title-img {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    display: block;
+}
+
+.start-card h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fff 0%, #aeb0ac 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.start-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #aeb0ac;
+    margin-bottom: 2.5rem;
+}
+
+.instructions {
+    text-align: left;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: 16px;
+    margin-bottom: 2.5rem;
+    border-left: 4px solid #3f688e;
+}
+
+.instructions h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.instructions ul {
+    list-style: none;
+}
+
+.instructions li {
+    font-size: 0.95rem;
+    color: #aeb0ac;
+    margin-bottom: 0.5rem;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, #3f688e 0%, #2c3e50 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 15px -3px rgba(63, 104, 142, 0.4);
+    width: 100%;
+}
+
+.primary-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(63, 104, 142, 0.5);
+    filter: brightness(1.1);
+}
+
+.primary-btn:active {
+    transform: translateY(0);
 }
 
 .evm-container {
@@ -449,5 +586,59 @@ body {
     .modal-body .highlight {
         font-size: 15px;
         padding: 10px;
+    }
+
+    /* Start Screen Mobile Refinements */
+    .start-card {
+        padding: 2rem 1.5rem;
+        width: 95%;
+        border-radius: 24px;
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .start-visual {
+        flex: none;
+        width: 100%;
+    }
+
+    .start-content {
+        flex: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .title-img {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+
+    .start-card h1 {
+        font-size: 1.6rem;
+    }
+
+    .start-description {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .instructions {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .instructions h3 {
+        font-size: 0.9rem;
+    }
+
+    .instructions li {
+        font-size: 0.85rem;
+    }
+
+    .primary-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1.1rem;
     }
 }

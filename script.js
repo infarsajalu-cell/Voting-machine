@@ -17,10 +17,16 @@ const candidatesList = document.getElementById('candidatesList');
 const readyLight = document.getElementById('readyLight');
 const resultModal = document.getElementById('resultModal');
 const closeModalBtn = document.getElementById('closeModal');
+const startScreen = document.getElementById('startScreen');
+const startBtn = document.getElementById('startBtn');
+const evmMain = document.getElementById('evmMain');
 let hasVoted = false;
 
 // Initialize candidates
 function initMachine() {
+    // Clear list first if re-initializing
+    candidatesList.innerHTML = '';
+    
     candidates.forEach((candidate, index) => {
         const row = document.createElement('div');
         row.className = 'candidate-row';
@@ -112,9 +118,16 @@ function showModal() {
     resultModal.classList.add('show');
 }
 
+// Start Application
+startBtn.addEventListener('click', () => {
+    startScreen.classList.add('hidden');
+    evmMain.style.display = 'block';
+    
+    // Initialize or re-initialize the machine
+    initMachine();
+});
+
 closeModalBtn.addEventListener('click', () => {
     resultModal.classList.remove('show');
 });
 
-// Initialize on load
-document.addEventListener('DOMContentLoaded', initMachine);

@@ -7,7 +7,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="evm-container">
+    <div class="start-screen" id="startScreen">
+        <div class="start-card">
+            <div class="start-visual">
+                <img src="TitleImg.png" alt="Voting Machine" class="title-img">
+            </div>
+            <div class="start-content">
+                <h1>Select Your Future</h1>
+                <p class="start-description">Cast your vote for the leadership that will shape our community's tomorrow. Your vote is secure and confidential.</p>
+                <div class="instructions">
+                    <h3>Voter Instructions:</h3>
+                    <ul>
+                        <li>1. Browse candidate names and portraits carefully.</li>
+                        <li>2. Press the blue button next to your chosen candidate.</li>
+                        <li>3. Wait for the confirmation beep sound.</li>
+                    </ul>
+                </div>
+                <button id="startBtn" class="primary-btn">Start Voting</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="evm-container" id="evmMain" style="display: none;">
         <div class="evm-header">
             <div class="ready-light-container">
                 Ready <div class="light ready-light" id="readyLight"></div>

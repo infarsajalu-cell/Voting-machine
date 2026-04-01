@@ -22,6 +22,7 @@ const startBtn = document.getElementById('startBtn');
 const candidateIntro = document.getElementById('candidateIntro');
 const proceedToVoteBtn = document.getElementById('proceedToVoteBtn');
 const evmMain = document.getElementById('evmMain');
+const saveScreenshotBtn = document.getElementById('saveScreenshotBtn');
 let hasVoted = false;
 
 // Initialize candidates
@@ -136,6 +137,41 @@ proceedToVoteBtn.addEventListener('click', () => {
 
 closeModalBtn.addEventListener('click', () => {
     resultModal.classList.remove('show');
+});
+
+// Screenshot Functionality
+saveScreenshotBtn.addEventListener('click', () => {
+    const modalContent = document.querySelector('.modal-content');
+    
+    // Show loading state on button
+    const originalText = saveScreenshotBtn.innerText;
+    saveScreenshotBtn.innerText = '⌛ Generating...';
+    saveScreenshotBtn.disabled = true;
+
+    html2canvas(modalContent, {
+        scale: 2, // Higher quality
+        useCORS: true, // In case of external images
+        backgroundColor: '#ffffff'
+    }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `my-vote-${Date.now()}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        
+        // Reset button
+        saveScreenshotBtn.innerText = '✅ Saved!';
+        setTimeout(() => {
+            saveScreenshotBtn.innerText = originalText;
+            saveScreenshotBtn.disabled = false;
+        }, 2000);
+    }).catch(err => {
+        console.error('Screenshot failed:', err);
+        saveScreenshotBtn.innerText = '❌ Failed';
+        setTimeout(() => {
+            saveScreenshotBtn.innerText = originalText;
+            saveScreenshotBtn.disabled = false;
+        }, 2000);
+    });
 });
 
 

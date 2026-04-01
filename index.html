@@ -9,7 +9,11 @@
 <body>
     <div class="start-screen" id="startScreen">
         <div class="start-card initial-card">
-            <h1>Virtual Election</h1>
+            <h1>VIRTUAL ELECTION</h1>
+            <div class="prize-tag">
+                WIN <span class="highlight-price">100 Pounds/ ₹10k</span><br>
+                by Virtual Voting
+            </div>
             <p class="malayalam-text">നിങ്ങൾക്ക് ഇഷ്ടപ്പെട്ട രാഷ്ട്രീയ സിനിമ കഥാപാത്രത്തെ virtual vote ചെയ്തു വിജയിപ്പിക്കുക</p>
             <p class="start-description">Our favorite stars are stepping off the sets and into the assembly race. Check out the famous faces from the Malayalam Film Industry appearing on your ballot paper this year. <br><br>Vote for your favorite star now! 👇</p>
             <div class="start-highlights">
@@ -66,12 +70,34 @@
                 <p class="modal-success-msg">Your vote has been submitted successfully!</p>
                 <div class="highlight result-container">
                     <p>The result will be published on</p>
-                    <p class="result-date">4th April 2026</p>
+                    <p class="result-date">11th April 2026</p>
+                </div>
+
+                <div class="modal-footer-cta">
+                    <p class="instagram-msg highlighted-cta">Don't forget to comment your voted candidate's name in the 1st pinned post of RFT Films Instagram page & to DM the screenshots to the same account</p>
+                    
+                    <div class="prize-rules">
+                        <h3>Rules to get Prize Money:</h3>
+                        <ul>
+                            <li><span>1)</span> Follow both notify_rft & rftfilms Instagram handles</li>
+                            <li><span>2)</span> Comment your voted candidate's name in the 1st pinned post of RFT FILMS Instagram handle.</li>
+                            <li><span>3)</span> DM the screenshots to the same account</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-action-btns">
+                        <button id="saveScreenshotBtn" class="secondary-btn">📸 Save Screenshot</button>
+                        <div class="insta-links-row">
+                            <a href="https://www.instagram.com/rftfilms/" target="_blank" class="instagram-btn">Visit RFT Films</a>
+                            <a href="https://www.instagram.com/notify_rft?igsh=aXoxamMyMTl6MnN6" target="_blank" class="instagram-btn notify-btn">Visit Notify RFT</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

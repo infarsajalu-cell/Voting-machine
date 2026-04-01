@@ -78,6 +78,8 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .intro-card h1 {
@@ -147,6 +149,23 @@ body {
     margin-bottom: 1.5rem;
     color: #3f688e;
     line-height: 1.5;
+}
+
+.prize-tag {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.highlight-price {
+    background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.4rem;
+    text-shadow: 0 5px 15px rgba(241, 196, 15, 0.3);
 }
 
 .start-description {
@@ -277,6 +296,10 @@ body {
 
 .evm-body {
     background: #e4e6e3;
+    max-height: 70vh;
+    overflow-y: auto;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
 }
 
 .candidates-list {
@@ -411,21 +434,23 @@ body {
 .modal {
     display: none;
     position: fixed;
-    z-index: 100;
+    z-index: 1000; /* Increased z-index */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.6);
     backdrop-filter: blur(4px);
-    justify-content: center;
-    align-items: center;
+    overflow-y: auto; /* Enable vertical scroll */
+    padding: 40px 10px; /* Space for scroll */
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 .modal.show {
     display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top to allow scroll */
     opacity: 1;
 }
 
@@ -560,6 +585,138 @@ body {
     margin-bottom: 0 !important;
 }
 
+.modal-footer-cta {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #eee;
+}
+
+.instagram-msg {
+    font-size: 14px !important;
+    font-weight: 600;
+    color: #1a1a1a !important;
+    margin-bottom: 15px !important;
+    line-height: 1.5 !important;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.highlighted-cta {
+    background: rgba(188, 24, 136, 0.08); /* Instagram theme color background */
+    border: 1px dashed #bc1888;
+    color: #833ab4 !important;
+}
+
+.modal-action-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.secondary-btn {
+    background: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.secondary-btn:hover {
+    background: #e9ecef;
+    border-color: #ccc;
+    transform: translateY(-2px);
+}
+
+.instagram-btn {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(188, 24, 136, 0.3);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.instagram-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(188, 24, 136, 0.4);
+    filter: brightness(1.1);
+}
+
+@media (max-width: 480px) {
+    .prize-tag {
+        font-size: 1.4rem;
+    }
+    .highlight-price {
+        font-size: 1.8rem;
+    }
+}
+
+/* Laptop and smaller desktop responsiveness (specifically for height) */
+@media (max-height: 850px) and (min-width: 481px) {
+    .intro-card {
+        padding: 1.5rem 2rem;
+        gap: 1.2rem;
+        max-width: 800px;
+    }
+
+    .intro-card h1 {
+        font-size: 1.8rem;
+    }
+
+    .intro-img {
+        max-width: 90%;
+        max-height: 50vh;
+        object-fit: contain;
+        border-radius: 16px;
+    }
+
+    .start-card {
+        padding: 2rem;
+        max-width: 500px;
+    }
+
+    .malayalam-text {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .start-description {
+        font-size: 0.95rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .start-highlights {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 481px) {
+    .intro-card {
+        max-width: 90%;
+        padding: 2rem;
+        gap: 1.5rem;
+    }
+
+    .intro-img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
 /* Responsive Design for Mobile Screens */
 @media (max-width: 480px) {
     body {
@@ -691,4 +848,58 @@ body {
         padding: 0.8rem 1.5rem;
         font-size: 1.1rem;
     }
+}
+
+/* Prize Rules Styling */
+.prize-rules {
+    text-align: left;
+    margin: 20px 0;
+    padding: 15px;
+    background: #fdfaf5;
+    border-radius: 12px;
+    border: 1px solid #faebcc;
+}
+
+.prize-rules h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #8a6d3b;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.prize-rules ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.prize-rules li {
+    font-size: 13px !important;
+    color: #333 !important;
+    margin-bottom: 8px !important;
+    line-height: 1.4 !important;
+    display: flex;
+    gap: 8px;
+}
+
+.prize-rules li span {
+    font-weight: 800;
+    color: #d35400;
+    flex-shrink: 0;
+}
+
+/* Instagram Buttons Layout */
+.insta-links-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.notify-btn {
+    background: linear-gradient(135deg, #1a1c1e 0%, #3f688e 100%) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
 }
